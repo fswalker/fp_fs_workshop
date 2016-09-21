@@ -1,0 +1,22 @@
+{
+  "module": "commonjs",
+  "sourceMaps": false,
+  "projFile": "./src/StarshipBook.Web/StarshipBook.Web.fsproj",
+  "outDir": "tmp",
+  "scripts": {
+    "prebuild": "npm install",
+    "postbuild": "webpack"
+  },
+  "targets": {
+    "core": {
+      "projFile": "../Starships.Core/Starships.Core.fsproj",
+      "outDir": "../webapp/tmp",
+      "postbuild": ""
+    },
+    "watch": {
+      "scripts": {
+        "postbuild": "webpack --watch"
+      }
+    }
+  }
+}

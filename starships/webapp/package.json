@@ -1,0 +1,31 @@
+{
+  "name": "starship_book_webapp",
+  "version": "1.0.0",
+  "description": "Web app for displaying Star Wars starships",
+  "scripts": {
+    "build": "fable -t core && fable --refs Starships.Core=./",
+    "watch": "fable -w --target watch"
+  },
+  "author": "Michał Grygierzec",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.24.0",
+    "fable-compiler": "^0.5.10",
+    "fable-import-react": "^0.5.1",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "source-map-loader": "^0.1.5",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
+  },
+  "dependencies": {
+    "core-js": "^2.4.1",
+    "fable-core": "^0.5.5",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "engines": {
+    "fable": "^0.5.5"
+  }
+}
