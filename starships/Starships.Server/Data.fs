@@ -25,33 +25,30 @@ let raw2Starship (raw: AllStarships.Result) =
         Url = raw.Url
     }
 
-// TODO_1
 let addFilmsTitles filmsDict starship =
-    // Get films urls from starship
-    // find title in films dictionary
-    // handle None; hint: use defaultArg
-    // return updated starship
-    starship
+    let titles = 
+        starship.Films
+        |> List.map (fun url -> Map.tryFind url filmsDict)
+        |> List.map (fun title -> defaultArg title "")
+    { starship with Films = titles }
 
-// TODO_2
 let addPilotsNames starship =
-    // get Pilots urls from starship
-    // switch to Array
-    // use Array.Parallel module to load person from swapi and get name
-    // update starship with pilots names
-    starship
+    let pilots = 
+        starship.Pilots
+        |> List.toArray
+        |> Array.Parallel.map (Person.Load >> (fun p -> p.Name))
+        |> Array.toList
+    { starship with Pilots = pilots }
 
-// TODO_3
 let getStarships () =
 
-    // create filmsDict based on all star wars films
+    let filmsDict = 
+        getAllFilms ()
+        |> Array.map (fun f -> f.Url, f.Title)
+        |> Map.ofArray
 
-
-    // get all starships
-    // use raw2Starship mapping function
-    // add films titles to starships using filmsDict
-    // use Array.Parallel module to add pilots names
-    // return list
     getAllStarships ()
     |> Array.map raw2Starship
+    |> Array.map (addFilmsTitles filmsDict)
+    |> Array.Parallel.map addPilotsNames
     |> Array.toList

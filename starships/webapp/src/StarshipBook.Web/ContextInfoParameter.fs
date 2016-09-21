@@ -13,13 +13,16 @@ type ContextInfoParameterProps = {
 
 let ContextInfoParameter (props) =
     
-    // TODO_4
-    // get parameter name and balues from props
+    let { parameter = parameter 
+          values = values } = props
 
-    // TODO_5
-    // create contextItems based on values
+    let contextItems =
+        values
+        |> List.map (fun v ->
+            R.li [ ClassName "movie-context-item" ] [ 
+                R.span [ ClassName "value" ] [ unbox v ] ])
          
-    // TODO_6
-    // Create html structure for parameter
-    // use contextItems as children; hint: look on other components like StarshipBox, etc.
-    R.div [] [ unbox "Context info goes here" ]
+    R.div [ ClassName "parameter" ] [
+        R.h4 [ ClassName "movie-context-title" ] [ unbox <| sprintf "%s: " parameter ]
+        R.ul [ ClassName "movie-context-list" ] contextItems
+    ]
