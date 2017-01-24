@@ -35,7 +35,7 @@ Target "Build App" (fun _ ->
 Target "Build Client" (fun _ ->
     Npm <| fun p ->
             { p with
-                //NpmFilePath = "packages/Npm.js/..."
+                // TODO set properly the path to npm
                 NpmFilePath = @"C:\Program Files\nodejs\npm.cmd"
                 Command = Run "build"
                 WorkingDirectory = clientDir
@@ -55,7 +55,7 @@ Target "Run Server" <| fun _ ->
     Async.Sleep 3000 |> Async.RunSynchronously
 
 Target "Run Client" <| fun _ ->
-    System.Diagnostics.Process.Start ("http://127.0.0.1:8083/index.html") |> ignore
+    System.Diagnostics.Process.Start ("http://127.0.0.1:8080/index.html") |> ignore
 
 Target "Run App" <| fun _ ->
     printfn "Press enter to kill the server..."

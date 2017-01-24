@@ -22,7 +22,6 @@ let starhipsApiPathWebPart =
         path (starshipsApiUrl + "/") ]
     >=> warbler (fun _ ->
         getStarships () |> JSON)
-    >=> Writers.setHeaderValue "Access-Control-Allow-Origin" "*"
 
 let app =
     choose [
