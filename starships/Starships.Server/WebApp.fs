@@ -30,7 +30,6 @@ let starhipsApiPathWebPart =
         path starshipsApiUrl
         path (starshipsApiUrl + "/") ]
     >=> JSON starships 
-    >=> Writers.setHeaderValue "Access-Control-Allow-Origin" "*"
 
 let app =
     choose [

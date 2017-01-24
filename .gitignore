@@ -6,6 +6,7 @@ starships/webapp/tmp/
 starships/webapp/src/*.js
 starships/webapp/dist/bundle.js
 starships/webapp/dist/bundle.js.map
+starships/Starships.Server/any/
 
 # Created by https://www.gitignore.io/api/f#,visualstudio
 

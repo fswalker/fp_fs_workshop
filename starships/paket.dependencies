@@ -6,5 +6,3 @@ nuget FSharp.Data
 nuget canopy
 nuget Selenium.WebDriver.ChromeDriver
 github evelinag/fsharp-swapi swapi.fs
-//nuget Npm.js
-
