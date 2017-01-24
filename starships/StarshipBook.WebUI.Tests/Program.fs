@@ -8,11 +8,13 @@ let main argv =
     let path = "./"
     configuration.chromeDir <- path
 
+    let webAppUrl = "http://127.0.0.1:8080/index.html"
+
     start chrome
 
     "Check for any starship present in the list" &&& fun _ ->
 
-        url "http://127.0.0.1:8083/index.html"
+        url webAppUrl
 
         let starships = elements ".starship-box"
 
@@ -21,7 +23,7 @@ let main argv =
 
     "Check if context info is present" &&& fun _ ->
 
-        url "http://127.0.0.1:8083/index.html"
+        url webAppUrl
 
         notContains "Context info goes here" <| read ".movie-context-info"
 
