@@ -24,9 +24,10 @@ var cfg = {
     ]
   },
   devServer: {
+    port: 8083,
     proxy: {
       '/api/starships': {
-        target: 'http://127.0.0.1:8083',
+        target: 'http://127.0.0.1:8080',
         secure: false
       }
     }
